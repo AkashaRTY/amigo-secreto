@@ -11,11 +11,16 @@ function adicionarAmigo() {
     }
 }
 
+function removerAmigo(id) {
+    amigos.splice(id, 1);
+    criarLista();
+}
+
 function criarLista() {
     let nome = '';
     let lista  = document.getElementById('listaAmigos');
-    amigos.forEach(amigo => {
-        nome += '<li>' + amigo + '</li>';
+    amigos.forEach((amigo, id) => {
+        nome += `<li> ${amigo} <a color='red' onclick='removerAmigo(${id})'>Excluir</a></li> `;
     });
     lista.innerHTML = nome;
 }
@@ -27,7 +32,6 @@ function sortearAmigo() {
     else {
         let amigoSecreto = Math.floor(Math.random() * amigos.length);
         document.getElementById('resultado').innerHTML = amigos[amigoSecreto];
-        amigos.splice(amigoSecreto, 1);
-        criarLista();
+        removerAmigo(amigoSecreto);
     }
 }
