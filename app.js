@@ -7,5 +7,15 @@ function adicionarAmigo() {
     } else {
         amigos.push(amigo.value);
         amigo.value = '';
+        criarLista();
     }
+}
+
+function criarLista() {
+    let nome = '';
+    let lista  = document.getElementById('listaAmigos');
+    amigos.forEach(amigo => {
+        nome += '<li>' + amigo + '</li>';
+    });
+    lista.innerHTML = nome;
 }
