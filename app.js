@@ -34,6 +34,7 @@ function criarLista() {
 function limparLista() {
     amigos = []; 
     criarLista();
+    document.getElementById('resultado').innerHTML = '';
 }
 
 function sortearAmigo() {
