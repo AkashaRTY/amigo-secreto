@@ -31,6 +31,11 @@ function criarLista() {
     lista.innerHTML = nome;
 }
 
+function limparLista() {
+    amigos = []; 
+    criarLista();
+}
+
 function sortearAmigo() {
     if(amigos.length === 0 || amigos.length === 1){
         alert('Digite o nome de pelo menos 2 amigos');
