@@ -1,7 +1,13 @@
 let amigos = [];
+let amigo = document.getElementById('amigo');
+
+amigo.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        adicionarAmigo();
+    }   
+});
 
 function adicionarAmigo() {
-    let amigo = document.getElementById('amigo');
     if (amigo.value === '') {
         alert('Por favor, insira um nome válido');
     } else {
@@ -20,7 +26,7 @@ function criarLista() {
     let nome = '';
     let lista  = document.getElementById('listaAmigos');
     amigos.forEach((amigo, id) => {
-        nome += `<li> ${amigo} <a color='red' onclick='removerAmigo(${id})'>Excluir</a></li> `;
+        nome += `<li> ${amigo} <a color='red' onclick='removerAmigo(${id})'>Remover</a></li> `;
     });
     lista.innerHTML = nome;
 }
